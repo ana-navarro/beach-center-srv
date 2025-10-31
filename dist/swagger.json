@@ -1,0 +1,14 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Beach Center API",
+        "description": "API para gerenciamento do Beach Center (Campeonatos, Eventos, Reservas, etc.)",
+        "version": "1.0.0"
+    },
+    "host": "localhost:8000",
+    "basePath": "/",
+    "schemes": [
+        "http"
+    ],
+    "paths": {}
+}

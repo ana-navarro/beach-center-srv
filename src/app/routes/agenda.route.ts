@@ -1,0 +1,17 @@
+import { Router } from "express";
+import AuthService from "../config/auth.config.js";
+import listarAgendasController from "../controllers/agenda/listar-agendas.controller.js";
+import visualizarAgendaController from "../controllers/agenda/visualizar-agenda.controller.js";
+import atualizarAgendaController from "../controllers/agenda/atualizar-agenda.controller.js";
+import criarAgendaController from "../controllers/agenda/criar-agenda.controller.js";
+import deletarAgendaController from "../controllers/agenda/deletar-agenda.controller.js";
+
+const agendaRoutes = Router();
+
+agendaRoutes.get("", AuthService.checkToken, listarAgendasController);
+agendaRoutes.get(":id", AuthService.checkToken, visualizarAgendaController);
+agendaRoutes.put(":id", AuthService.checkToken, atualizarAgendaController);
+agendaRoutes.post("", AuthService.checkToken, criarAgendaController);
+agendaRoutes.delete(":id", AuthService.checkToken, deletarAgendaController);
+
+export default agendaRoutes;

@@ -1,0 +1,14 @@
+import { Router } from "express";
+import AuthService from "../config/auth.config.js";
+import atualizarReservaController from "../controllers/reserva/atualizar-reserva.controller.js";
+import criarReservaController from "../controllers/reserva/criar-reserva.controller.js";
+import deletarReservaController from "../controllers/reserva/deletar-reserva.controller.js";
+import listarReservaController from "../controllers/reserva/listar-reserva.controller.js";
+import visualizarReservaController from "../controllers/reserva/visualizar-reserva.controller.js";
+const reservaRoutes = Router();
+reservaRoutes.get("", AuthService.checkToken, listarReservaController);
+reservaRoutes.get(":id", AuthService.checkToken, visualizarReservaController);
+reservaRoutes.put(":id", AuthService.checkToken, atualizarReservaController);
+reservaRoutes.post("", AuthService.checkToken, criarReservaController);
+reservaRoutes.delete(":id", AuthService.checkToken, deletarReservaController);
+export default reservaRoutes;

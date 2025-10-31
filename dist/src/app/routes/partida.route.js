@@ -1,0 +1,14 @@
+import { Router } from "express";
+import AuthService from "../config/auth.config.js";
+import atualizarPartidaController from "../controllers/partida/atualizar-partida.controller.js";
+import criarPartidaController from "../controllers/partida/criar-partida.controller.js";
+import deletarPartidaController from "../controllers/partida/deletar-partida.controller.js";
+import listarPartidaController from "../controllers/partida/listar-partidas.controller.js";
+import visualizarPartidaController from "../controllers/partida/visualizar-partida.controller.js";
+const partidaRoutes = Router();
+partidaRoutes.get("", AuthService.checkToken, listarPartidaController);
+partidaRoutes.get(":id", AuthService.checkToken, visualizarPartidaController);
+partidaRoutes.put(":id", AuthService.checkToken, atualizarPartidaController);
+partidaRoutes.post("", AuthService.checkToken, criarPartidaController);
+partidaRoutes.delete(":id", AuthService.checkToken, deletarPartidaController);
+export default partidaRoutes;

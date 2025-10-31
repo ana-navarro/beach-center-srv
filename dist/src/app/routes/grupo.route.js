@@ -1,0 +1,14 @@
+import { Router } from "express";
+import AuthService from "../config/auth.config.js";
+import atualizarGrupoController from "../controllers/grupos/atualizar-grupo.controller.js";
+import criarGrupoController from "../controllers/grupos/criar-grupo.controller.js";
+import deletarGrupoController from "../controllers/grupos/deletar-grupo.controller.js";
+import listarGrupoController from "../controllers/grupos/listar-grupos.controller.js";
+import visualizarGrupoController from "../controllers/grupos/visualizar-grupo.controller.js";
+const gruposRoutes = Router();
+gruposRoutes.get("", AuthService.checkToken, listarGrupoController);
+gruposRoutes.get(":id", AuthService.checkToken, visualizarGrupoController);
+gruposRoutes.put(":id", AuthService.checkToken, atualizarGrupoController);
+gruposRoutes.post("", AuthService.checkToken, criarGrupoController);
+gruposRoutes.delete(":id", AuthService.checkToken, deletarGrupoController);
+export default gruposRoutes;

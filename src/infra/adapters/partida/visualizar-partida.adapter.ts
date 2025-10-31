@@ -1,0 +1,33 @@
+import Partida from "../../schemas/partida.js";
+import { IPartidaResponse } from "./partida.type.js";
+
+class VisualizarPartidaAdapter {
+    async execute(id: string): Promise<IPartidaResponse> {
+        try {
+            const response = await Partida.findById({ _id: id });
+
+            if (!response) {
+                throw new Error("Partida não encontrada!");
+            };
+
+            const result: IPartidaResponse = {
+                id: response._id.toString(),
+                competidores: response.competidores.map((c) => String(c)),
+                placar_competidor_1: Number(response.placar_competidor_1),
+                placar_competidor_2: Number(response.placar_competidor_2),
+                vencedor: String(response.vencedor),
+                horaInicio: new Date(String(response.horaInicio)),
+                horaFim: new Date(String(response.horaFim)),
+                dataPartida: new Date(String(response.dataPartida)),
+                status: String(response.status)
+            }
+
+            return result;
+        } catch (error) {
+            console.log("Erro ao visualizar a partida:", error);
+            throw new Error("Erro ao visualizar a partida");
+        }
+    }
+}
+
+export default VisualizarPartidaAdapter;

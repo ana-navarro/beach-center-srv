@@ -1,0 +1,48 @@
+{
+  "name": "beach-center-srv",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.ts",
+  "scripts": {
+    "test": "test",
+    "swagger": "node swagger.js",
+    "build": "tsc",
+    "start": "node ./dist/index.js",
+    "dev": "nodemon"
+  },
+  "author": "Ana Navarro",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/react-router-dom": "^5.3.3",
+    "axios": "^1.13.0",
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0",
+    "express-validator": "^7.3.0",
+    "http-proxy-middleware": "^3.0.5",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.20.0",
+    "mongoose": "^8.19.2",
+    "mongoose-delete": "^1.0.2",
+    "nodemailer": "^7.0.10",
+    "nodemon": "^3.1.10",
+    "path": "^0.12.7",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.5",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/mongoose": "^5.11.96",
+    "@types/node": "^24.9.2",
+    "@types/swagger-ui-express": "^4.1.8",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "swagger-autogen": "^2.23.7",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3"
+  }
+}

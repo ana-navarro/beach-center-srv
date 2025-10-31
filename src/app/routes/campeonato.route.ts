@@ -1,0 +1,17 @@
+import { Router } from "express";
+import AuthService from "../config/auth.config.js";
+import atualizarCampeonatoController from "../controllers/campeonato/atualizar-campeonato.controller.js";
+import criarCampeonatoController from "../controllers/campeonato/criar-campeonato.controller.js";
+import deletarCampeonatoController from "../controllers/campeonato/deletar-campeonato.controller.js";
+import listarCampeonatoController from "../controllers/campeonato/listar-campeonatos.controller.js";
+import visualizarCampeonatoController from "../controllers/campeonato/visualizar-campeonato.controller.js";
+
+const campeonatoRoutes = Router();
+
+campeonatoRoutes.get("", AuthService.checkToken, listarCampeonatoController);
+campeonatoRoutes.get(":id", AuthService.checkToken, visualizarCampeonatoController);
+campeonatoRoutes.put(":id", AuthService.checkToken, atualizarCampeonatoController);
+campeonatoRoutes.post("", AuthService.checkToken, criarCampeonatoController);
+campeonatoRoutes.delete(":id", AuthService.checkToken, deletarCampeonatoController);
+
+export default campeonatoRoutes;

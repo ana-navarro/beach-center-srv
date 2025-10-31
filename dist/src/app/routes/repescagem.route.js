@@ -1,0 +1,14 @@
+import { Router } from "express";
+import AuthService from "../config/auth.config.js";
+import atualizarRepescagemController from "../controllers/repescagem/atualizar-repescagem.controller.js";
+import criarRepescagemController from "../controllers/repescagem/criar-repescagem.controller.js";
+import deletarRepescagemController from "../controllers/repescagem/deletar-repescagem.controller.js";
+import listarRepescagemController from "../controllers/repescagem/listar-repescagem.controller.js";
+import visualizarRepescagemController from "../controllers/repescagem/visualizar-repescagem.controller.js";
+const repescagemRoutes = Router();
+repescagemRoutes.get("", AuthService.checkToken, listarRepescagemController);
+repescagemRoutes.get(":id", AuthService.checkToken, visualizarRepescagemController);
+repescagemRoutes.put(":id", AuthService.checkToken, atualizarRepescagemController);
+repescagemRoutes.post("", AuthService.checkToken, criarRepescagemController);
+repescagemRoutes.delete(":id", AuthService.checkToken, deletarRepescagemController);
+export default repescagemRoutes;

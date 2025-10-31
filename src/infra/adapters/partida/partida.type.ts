@@ -1,0 +1,22 @@
+export interface IPartidaRequest {
+    competidores: string[];
+    placar_competidor_1: number;
+    placar_competidor_2: number;
+    vencedor: string;
+    horaInicio: Date;
+    horaFim: Date;
+    dataPartida: Date;
+    status: string;
+}
+
+export interface IPartidaResponse {
+    id: string;
+    competidores: string[];
+    placar_competidor_1: number;
+    placar_competidor_2: number;
+    vencedor: string;
+    horaInicio: Date;
+    horaFim: Date;
+    dataPartida: Date;
+    status: string;
+}
